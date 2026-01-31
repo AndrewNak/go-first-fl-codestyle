@@ -23,8 +23,8 @@ func attack(charName, charClass string) string {
 	return "неизвестный класс персонажа"
 }
 
-func defence(charName, charClass string) string{
- 	if charClass == "warrior" {
+func defence(charName, charClass string) string {
+	if charClass == "warrior" {
 		return fmt.Sprintf("%s блокировал %d урона.", charName, 10+randint(5, 10))
 	}
 	if charClass == "mage" {
@@ -74,15 +74,15 @@ func startTraining(charName, charClass string) string {
 
 		if cmd == "attack" {
 			fmt.Println(attack(charName, charClass))
-		
-		if cmd == "defence" {
-			fmt.Println(defence(charName, charClass))
-		}
-		if cmd == "special" {
-			fmt.Println(special(charName, charClass))
+
+			if cmd == "defence" {
+				fmt.Println(defence(charName, charClass))
+			}
+			if cmd == "special" {
+				fmt.Println(special(charName, charClass))
+			}
 		}
 	}
-
 	return "тренировка окончена"
 }
 
@@ -96,9 +96,11 @@ func choiseCharClass() string {
 		fmt.Scanf("%s\n", &charClass)
 		if charClass == "warrior" {
 			fmt.Println("Воитель — дерзкий воин ближнего боя. Сильный, выносливый и отважный.")
-		} else if charClass == "mage" {
+		}
+		if charClass == "mage" {
 			fmt.Println("Маг — находчивый воин дальнего боя. Обладает высоким интеллектом.")
-		} else if charClass == "healer" {
+		}
+		if charClass == "healer" {
 			fmt.Println("Лекарь — могущественный заклинатель. Черпает силы из природы, веры и духов.")
 		}
 		fmt.Print("Нажми (Y), чтобы подтвердить выбор, или любую другую кнопку, чтобы выбрать другого персонажа: ")
@@ -126,5 +128,3 @@ func main() {
 
 	fmt.Println(startTraining(charName, charClass))
 }
-
-
